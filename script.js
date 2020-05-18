@@ -12,22 +12,24 @@ var specialCharacters = ["!","@","#","$","%","^","&","*","()"];
 function getPasswordOptions() {
     var passwordArr = [];
   var howLongPassword = prompt("How long pasword?");
-  console.log(howLongPassword);
+
   if (howLongPassword < 8){
+    alert ("Password is too short!")
     return; 
   }
     else if (howLongPassword > 128) {
+      alert ("Password is too long")
       return;
     }
 
   var youWantLowerCaseLetters = confirm("Lower case letters?");
-  console.log(youWantLowerCaseLetters);
+  
   var youWantUpperCaseLetters = confirm("Upper case letters");
-  console.log(youWantUpperCaseLetters);
+  
   var youWantSpecialCharacters = confirm("Special characters");
-  console.log(youWantSpecialCharacters);
+  
   var youWantNumericCharacters = confirm("Numeric characters");
-  console.log(youWantNumericCharacters);
+  
 
   var optionsArray = [];
   // conditionals to determine
@@ -43,7 +45,7 @@ function getPasswordOptions() {
   if (youWantNumericCharacters) {
     optionsArray = optionsArray.concat(numbers)
   }
-  console.log(optionsArray)
+  
 
 var password = ""
 
@@ -51,7 +53,7 @@ var password = ""
       var randomSelection = optionsArray[Math.floor(Math.random() * optionsArray.length)]
   password += randomSelection;
   }
-  console.log(password);
+
   passwordText.value = password;
 }
 generateBtn.addEventListener("click", getPasswordOptions);
